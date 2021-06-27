@@ -4,7 +4,7 @@ using System.Collections.Generic;
 #nullable enable
 
 namespace SchemeCs {
-    public class Lexer {
+    public sealed class Lexer {
         public class UnterminatedStringLiteral : Exception { }
         public class UnprocessableInput : Exception { }
         public class InvalidNumberLiteral : Exception { }
@@ -40,7 +40,7 @@ namespace SchemeCs {
             return false;
         }
 
-        public Lexer(string src) {
+        private Lexer(string src) {
             chars = src.ToCharArray();
             pos = 0;
             tokens = new();
