@@ -156,7 +156,7 @@ namespace SchemeCs {
                         break;
 
                     case NumberState.Whole:
-                        if (Char.IsWhiteSpace(chars[pos])) {
+                        if (Char.IsWhiteSpace(chars[pos]) || chars[pos] == ')') {
                             goto FinishNumber;
                         }
 
@@ -176,7 +176,7 @@ namespace SchemeCs {
                         break;
 
                     case NumberState.Decimal:
-                        if (Char.IsWhiteSpace(chars[pos])) {
+                        if (Char.IsWhiteSpace(chars[pos]) || chars[pos] == ')') {
                             goto FinishNumber;
                         }
 
