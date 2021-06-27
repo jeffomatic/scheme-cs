@@ -1,0 +1,13 @@
+[*.cs]
+# use K&R brace style instead of Allman style
+csharp_new_line_before_open_brace = none
+csharp_new_line_before_else = false
+csharp_new_line_before_catch = false
+csharp_new_line_before_finally = false
+
+# don't force all constructors for custom exceptions
+dotnet_diagnostic.RCS1194.severity = none 
+
+# import sorting
+dotnet_separate_import_directive_groups = true
+dotnet_sort_system_directives_first = true
