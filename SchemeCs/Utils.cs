@@ -36,5 +36,45 @@ namespace SchemeCs {
 
             return true;
         }
+
+        public static bool DictionaryEquals<TKey, TValue>(
+            Dictionary<TKey, TValue>? a,
+            Dictionary<TKey, TValue>? b
+        ) where TKey : notnull {
+            if (a == null && b == null) {
+                return true;
+            }
+
+            if (a == null || b == null) {
+                return false;
+            }
+
+            if (a.Count != b.Count) {
+                return false;
+            }
+
+            foreach (var kv in a) {
+                if (!b.ContainsKey(kv.Key)) {
+                    return false;
+                }
+
+                var va = a[kv.Key];
+                var vb = b[kv.Key];
+
+                if (va == null && vb == null) {
+                    continue;
+                }
+
+                if (va == null || vb == null) {
+                    return false;
+                }
+
+                if (!va.Equals(vb)) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     }
 }

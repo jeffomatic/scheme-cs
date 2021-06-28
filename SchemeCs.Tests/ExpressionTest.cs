@@ -6,8 +6,8 @@ namespace SchemeCs.Tests {
     public class ExpressionTest {
         [Fact]
         public void Test() {
-            Assert.True(new Reference("a").Equals(new Reference("a")));
-            Assert.False(new Reference("a").Equals(new Reference("b")));
+            Assert.True(new Symbol("a").Equals(new Symbol("a")));
+            Assert.False(new Symbol("a").Equals(new Symbol("b")));
 
             Assert.True(new StringLiteral("a").Equals(new StringLiteral("a")));
             Assert.False(new StringLiteral("a").Equals(new StringLiteral("b")));

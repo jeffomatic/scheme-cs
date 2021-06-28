@@ -14,16 +14,23 @@ namespace SchemeCs {
         public abstract void Add(Expression e);
     }
 
-    public class Reference : Expression {
+    public class Symbol : Expression {
+        public static Symbol? Downcast(Expression expr) {
+            return expr switch {
+                Symbol s => s,
+                _ => null
+            };
+        }
+
         public string Identifier { get; }
 
-        public Reference(string identifier) {
+        public Symbol(string identifier) {
             Identifier = identifier;
         }
 
         public override bool Equals(object? obj) {
             return obj switch {
-                Reference r => r.Identifier == Identifier,
+                Symbol r => r.Identifier == Identifier,
                 _ => false
             };
         }
@@ -60,6 +67,13 @@ namespace SchemeCs {
     }
 
     public class ListExpr : ExprContainer {
+        public static ListExpr? Downcast(Expression expr) {
+            return expr switch {
+                ListExpr s => s,
+                _ => null
+            };
+        }
+
         public override List<Expression> Children { get; }
 
         public ListExpr() {

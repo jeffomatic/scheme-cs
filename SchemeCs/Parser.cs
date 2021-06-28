@@ -46,7 +46,7 @@ namespace SchemeCs {
                         break;
 
                     case IdentifierToken t:
-                        stack[^1].Add(new Reference(t.Value));
+                        stack[^1].Add(new Symbol(t.Value));
                         break;
                 }
             }

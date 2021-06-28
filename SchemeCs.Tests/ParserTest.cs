@@ -44,7 +44,7 @@ namespace SchemeCs.Tests {
                 new Example(
                     "a \"123\" 1",
                     new Sequence(new List<Expression> {
-                        new Reference("a"),
+                        new Symbol("a"),
                         new StringLiteral("123"),
                         new NumberLiteral(1),
                     })
@@ -54,7 +54,7 @@ namespace SchemeCs.Tests {
                     new Sequence(new List<Expression> {
                         new ListExpr(new List<Expression> {
                             new ListExpr(new List<Expression> {
-                                new Reference("a"),
+                                new Symbol("a"),
                             })
                         })
                     })
@@ -63,10 +63,10 @@ namespace SchemeCs.Tests {
                     "(+ 1 (* 3 4))",
                     new Sequence(new List<Expression> {
                         new ListExpr(new List<Expression> {
-                            new Reference("+"),
+                            new Symbol("+"),
                             new NumberLiteral(1),
                             new ListExpr(new List<Expression> {
-                                new Reference("*"),
+                                new Symbol("*"),
                                 new NumberLiteral(3),
                                 new NumberLiteral(4),
                             })
